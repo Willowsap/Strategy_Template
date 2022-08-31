@@ -10,12 +10,10 @@ test: junit-platform-console-standalone-1.2.0.jar
 	java -cp .:bin:junit-platform-console-standalone-1.2.0.jar org.junit.platform.console.ConsoleLauncher --scan-class-path
 
 clean:
-	rm -f bin/*.class
-	rm -f src/*~
-	rm -f *~
+	rm -f bin/**/*.class
 
 compile: junit-platform-console-standalone-1.2.0.jar 
 	javac $(JFLAGS) -cp .:junit-platform-console-standalone-1.2.0.jar src/**/*.java
 
-demo: bin/Demo.class
-	java -cp bin Demo
+demo: bin/characters/Demo.class
+	java -cp bin characters/Demo
